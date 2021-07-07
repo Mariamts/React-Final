@@ -1,3 +1,5 @@
+import { withAuthProtected } from '../../hoc';
+
 function HomePage() {
   return (
     <div>
@@ -6,4 +8,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default withAuthProtected(HomePage);

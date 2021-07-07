@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
-// import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router';
-// import { setAuthUserAction } from '../../../redux/actions';
-// import { login } from '../../../services';
-// import { AUTH_TOKEN } from '../../../utils/constants';
-// import { PROFILE_PATH } from '../../../utils/routePaths';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import { setAuthUserAction } from '../../../redux/actions';
+import { login } from '../../../services';
+import { AUTH_TOKEN } from '../../../utils/constants';
+import { HOME_PATH } from '../../../utils/routePaths';
 
 function SignInForm() {
   const {
@@ -12,18 +12,15 @@ function SignInForm() {
     handleSubmit,
     formState: { errors, touchedFields },
   } = useForm();
-  // const history = useHistory();
-  // const dispatch = useDispatch();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const onSubmit = () => {
-    console.log('onsubmit');
+  const onSubmit = async (formData) => {
+    const loggedIn = await login(formData);
+    localStorage.setItem(AUTH_TOKEN, JSON.stringify(loggedIn.token));
+    dispatch(setAuthUserAction(loggedIn.token));
+    history.replace(HOME_PATH);
   };
-  // const onSubmit = async (formData) => {
-  //   const loggedIn = await login(formData);
-  //   localStorage.setItem(AUTH_TOKEN, JSON.stringify(loggedIn.token));
-  //   dispatch(setAuthUserAction(loggedIn.token));
-  //   history.replace(PROFILE_PATH);
-  // };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -3,7 +3,7 @@ import { Link, Redirect, Route, Switch, useLocation } from 'react-router-dom';
 
 import SignIn from './sign-in';
 import SignUp from './sign-up';
-// import { withNoAuthProtected } from '../../hoc';
+import { withNoAuthProtected } from '../../hoc';
 import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../utils/routePaths';
 
 function AuthPage() {
@@ -48,5 +48,5 @@ function AuthPage() {
   );
 }
 
-export default AuthPage;
-// export default withNoAuthProtected(AuthPage);
+// export default AuthPage;
+export default withNoAuthProtected(AuthPage);
