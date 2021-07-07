@@ -1,16 +1,18 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router';
 import AuthPage from './pages/auth';
 import HomePage from './pages/home-page';
 import * as routes from './utils/routePaths';
 
+const ProfilePage = React.lazy(() => import('./pages/profile-page'));
+
 function Routes() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Switch>
-        {/* <Route path={routes.PROFILE_PATH}>
-        <Profile title="Secured Profile Page" />
-      </Route> */}
+        <Route path={routes.PROFILE_PATH}>
+          <ProfilePage />
+        </Route>
         <Route path={routes.AUTH_PATH}>
           <AuthPage />
         </Route>
