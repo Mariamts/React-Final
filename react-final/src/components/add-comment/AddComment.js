@@ -19,14 +19,11 @@ function AddComment({ postId }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="comment" className="form-label">
-        comment - {comment}
-      </label>
       <input
         type="text"
         className="form-control"
         id="comment"
-        placeholder=""
+        placeholder="comment"
         value={comment}
         onChange={({ target }) => {
           setComment(target.value);

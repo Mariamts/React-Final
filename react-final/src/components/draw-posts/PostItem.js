@@ -15,21 +15,29 @@ function PostItem({ item }) {
   const { removePost } = useContext(PostsContext);
 
   return (
-    <div className="card">
-      <div className="card-body">
+    <div>
+      <div className="card">
         <h5 className="card-title">{item.post}</h5>
-        <div>
-          <DrawLikes postId={item.id} />
-          <AddLike postId={item.id} />
+        <div className="card-body d-flex justify-content-between">
+          <div>
+            <DrawLikes postId={item.id} />
+          </div>
+          <div>
+            <AddLike postId={item.id} />
+          </div>
+          <div>
+            {canRemovePost(item.userId, userId) && (
+              <button
+                className="btn btn-danger mb-3"
+                onClick={() => removePost(item.id)}>
+                Delete Post
+              </button>
+            )}
+          </div>
         </div>
-        <AddComment postId={item.id} />
-        <DrawComments postId={item.id} />
-        {canRemovePost(item.userId, userId) && (
-          <button className="btn btn-danger" onClick={() => removePost(item.id)}>
-            პოსტის წაშლა
-          </button>
-        )}
       </div>
+      <DrawComments postId={item.id} />
+      <AddComment postId={item.id} />
     </div>
   );
 }

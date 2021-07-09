@@ -9,11 +9,14 @@ const filterComments = (list, postId) => {
 function DrawComments({ postId }) {
   const { commentsList } = useContext(PostsContext);
   return (
-    <>
-      {filterComments(commentsList, postId).map((item, index) => (
-        <CommentItem key={index} item={item} />
-      ))}
-    </>
+    <div>
+      <h3 className="mb-5 mt-5">comments</h3>
+      <div className="mt-3">
+        {filterComments(commentsList, postId).map((item, index) => (
+          <CommentItem key={index} item={item} />
+        ))}
+      </div>
+    </div>
   );
 }
 

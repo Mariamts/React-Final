@@ -28,9 +28,9 @@ function AddPost() {
       </label>
       <input
         type="text"
-        className="form-control"
+        className="form-control mb-5"
         id="post"
-        placeholder=""
+        placeholder="What's on your mind ? "
         value={post}
         onChange={({ target }) => {
           setPost(target.value);

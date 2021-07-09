@@ -6,13 +6,12 @@ function Posts({ type }) {
   return (
     <PostsProviderComponent>
       <div>
-        <h1>პოსტის დამდები ტიპი</h1>
+        <h1>Add posts</h1>
         <div>
           <AddPost />
         </div>
 
-        <div>
-          აქ იქნება თვითონ პოსტები
+        <div className="post-list">
           <DrawPosts type={type} />
         </div>
       </div>

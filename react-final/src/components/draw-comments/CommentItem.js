@@ -8,14 +8,14 @@ function CommentItem({ item }) {
   const userId = useSelector(authUserIdSelector);
   const { removeComment } = useContext(PostsContext);
   return (
-    <>
+    <div className="comment mb-2 d-flex justify-content-between align-items-center">
       <h5>{item.comment}</h5>
       {canRemoveComment(item.userId, userId) && (
-        <button className="btn btn-warning" onClick={() => removeComment(item.id)}>
-          კომენტარის წაშლა
+        <button className="btn btn-danger" onClick={() => removeComment(item.id)}>
+          Delete Comment
         </button>
       )}
-    </>
+    </div>
   );
 }
 

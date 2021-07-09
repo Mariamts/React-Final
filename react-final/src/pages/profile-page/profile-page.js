@@ -14,10 +14,13 @@ function ProfilePage() {
 
   return (
     <div>
-      <h2>Profile</h2>
-      <button className="btn btn-primary" onClick={() => logout()}>
-        logout
-      </button>
+      <div className="d-flex justify-content-around">
+        <h2>Profile</h2>
+        <a className="btn btn-primary" onClick={() => logout()}>
+          {' '}
+          Log Out
+        </a>
+      </div>
       <Posts type={PROFILE_PATH} />
     </div>
   );
