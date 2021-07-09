@@ -1,3 +1,2 @@
 export const authSelector = ({ user: { auth } }) => auth;
-
-export default authSelector;
+export const authUserIdSelector = ({ user: { userId } }) => userId;

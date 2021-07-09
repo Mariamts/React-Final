@@ -1,8 +1,9 @@
 import { SET_AUTH_GUEST, SET_AUTH_USER } from '../action-types/auth-types';
 
-export const setAuthUserAction = (payload) => ({
+export const setAuthUserAction = (token, id) => ({
   type: SET_AUTH_USER,
-  payload,
+  token,
+  id,
 });
 
 export const setAuthGuestAction = () => ({

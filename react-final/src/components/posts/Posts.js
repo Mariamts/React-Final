@@ -2,7 +2,7 @@ import PostsProviderComponent from '../../contexts/posts-provider/PostsProvider'
 import AddPost from '../add-post';
 import DrawPosts from '../draw-posts';
 
-function Posts() {
+function Posts({ type }) {
   return (
     <PostsProviderComponent>
       <div>
@@ -13,7 +13,7 @@ function Posts() {
 
         <div>
           აქ იქნება თვითონ პოსტები
-          <DrawPosts type="home" />
+          <DrawPosts type={type} />
         </div>
       </div>
     </PostsProviderComponent>

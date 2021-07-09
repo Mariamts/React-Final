@@ -3,6 +3,7 @@ import * as actionType from '../action-types/auth-types';
 const initialState = {
   error: null,
   auth: null,
+  userId: null,
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -12,11 +13,13 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         auth: null,
+        userId: null,
       };
     case actionType.SET_AUTH_USER:
       return {
         ...state,
-        auth: action.payload,
+        auth: action.token,
+        userId: action.id,
       };
 
     default:

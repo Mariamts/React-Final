@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { setAuthUserAction } from '../../../redux/actions';
 import { register as rg } from '../../../services';
-import { AUTH_TOKEN } from '../../../utils/constants';
-import { PROFILE_PATH } from '../../../utils/routePaths';
+import { AUTH_TOKEN, USER_ID } from '../../../utils/constants';
+import { HOME_PATH } from '../../../utils/routePaths';
 
 function SignUpForm() {
   const {
@@ -19,8 +19,10 @@ function SignUpForm() {
     const loggedIn = await rg(formData);
     if (loggedIn.token) {
       localStorage.setItem(AUTH_TOKEN, JSON.stringify(loggedIn.token));
-      dispatch(setAuthUserAction(loggedIn.token));
-      history.replace(PROFILE_PATH);
+      localStorage.setItem(USER_ID, JSON.stringify(loggedIn.id));
+
+      dispatch(setAuthUserAction(loggedIn.token, loggedIn.id));
+      history.replace(HOME_PATH);
     }
   };
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { autoFillData } from './redux/actions/middleware-actions';
+import { autoFillData, autoLoginAction } from './redux/actions/middleware-actions';
 import Routes from './Routes';
 import './App.css';
 
@@ -9,6 +9,7 @@ function App() {
 
   useEffect(() => {
     dispatch(autoFillData());
+    dispatch(autoLoginAction());
   }, []);
 
   return (
