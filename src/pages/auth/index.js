@@ -17,22 +17,23 @@ function AuthPage() {
         <ul className="nav nav-pills">
           {pathname.includes(SIGN_UP_PATH) && (
             <li className="nav-item ml-5">
-              <Button color="cyan" appearance="ghost">
+              <h6 className="mb-0 mr-5">Already have account ? </h6>{' '}
+              <span color="cyan" appearance="ghost" className="ml-5">
                 <Link
                   to={SIGN_IN_PATH}
                   className={classNames({
                     active: pathname.includes(SIGN_IN_PATH),
                   })}>
-                  Sign In
+                  Register
                 </Link>
-              </Button>
+              </span>
             </li>
           )}
 
           {pathname.includes(SIGN_IN_PATH) && (
             <li className="nav-item d-flex justify-content-center align-items-center">
               <h6 className="mb-0 mr-5">Do not have account ? </h6>{' '}
-              <a color="cyan" appearance="ghost" className="ml-5">
+              <span color="cyan" appearance="ghost" className="ml-5">
                 <Link
                   to={SIGN_UP_PATH}
                   className={classNames({
@@ -40,7 +41,7 @@ function AuthPage() {
                   })}>
                   Register
                 </Link>
-              </a>
+              </span>
             </li>
           )}
         </ul>

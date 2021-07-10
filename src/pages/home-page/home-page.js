@@ -3,7 +3,7 @@ import { withAuthProtected } from '../../hoc';
 
 function HomePage() {
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center col-12">
       <Posts />
     </div>
   );
