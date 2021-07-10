@@ -5,7 +5,6 @@ import SignIn from './sign-in';
 import SignUp from './sign-up';
 import { withNoAuthProtected } from '../../hoc';
 import { SIGN_IN_PATH, SIGN_UP_PATH } from '../../utils/routePaths';
-import { Button } from 'rsuite';
 
 function AuthPage() {
   const { pathname } = useLocation();
