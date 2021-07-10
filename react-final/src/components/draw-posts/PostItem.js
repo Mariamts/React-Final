@@ -15,29 +15,35 @@ function PostItem({ item }) {
   const { removePost } = useContext(PostsContext);
 
   return (
-    <div>
-      <div className="card">
-        <h5 className="card-title">{item.post}</h5>
-        <div className="card-body d-flex justify-content-between">
+    <div className="d-flex justify-content-center">
+      <div className="card mb-5 shadow-lg col-12">
+        <div className="d-flex justify-content-end mr-5">
+          {canRemovePost(item.userId, userId) && (
+            <button
+              className="btn btn-close m-3 "
+              onClick={() => removePost(item.id)}
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              title="Delete post"></button>
+          )}
+        </div>
+        <h5 className="card-title p-3  border-bottom">{item.post}</h5>
+        <div
+          className="card-body d-flex align-items-center justify-content-between"
+          style={{ width: '7%' }}>
           <div>
             <DrawLikes postId={item.id} />
           </div>
           <div>
             <AddLike postId={item.id} />
           </div>
-          <div>
-            {canRemovePost(item.userId, userId) && (
-              <button
-                className="btn btn-danger mb-3"
-                onClick={() => removePost(item.id)}>
-                Delete Post
-              </button>
-            )}
-          </div>
+        </div>
+
+        <div>
+          <DrawComments postId={item.id} />
+          <AddComment className="mb-3" postId={item.id} />
         </div>
       </div>
-      <DrawComments postId={item.id} />
-      <AddComment postId={item.id} />
     </div>
   );
 }

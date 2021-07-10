@@ -10,7 +10,7 @@ function AddPost() {
   const { addPost } = useContext(PostsContext);
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event?.preventDefault();
     const newPost = {
       post,
       id: Math.random(),
@@ -24,12 +24,11 @@ function AddPost() {
   return (
     <form onSubmit={onSubmit}>
       <label htmlFor="Post" className="form-label">
-        Post - {post}
+        {post}
       </label>
       <input
         type="text"
         className="form-control mb-5"
-        id="post"
         placeholder="What's on your mind ? "
         value={post}
         onChange={({ target }) => {
@@ -37,6 +36,13 @@ function AddPost() {
         }}
         required
       />
+      <button
+        className="form-control mb-5 btn-primary"
+        id="post"
+        type="submit"
+        value={post}>
+        Add
+      </button>
     </form>
   );
 }

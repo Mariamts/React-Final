@@ -1,0 +1,9 @@
+.active-class {
+  background-color: teal !important;
+  color: #fff !important;
+}
+
+.active-class:hover {
+  color: #fff;
+  text-decoration: underline;
+}

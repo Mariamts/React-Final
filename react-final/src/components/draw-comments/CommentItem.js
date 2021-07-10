@@ -9,9 +9,11 @@ function CommentItem({ item }) {
   const { removeComment } = useContext(PostsContext);
   return (
     <div className="comment mb-2 d-flex justify-content-between align-items-center">
-      <h5>{item.comment}</h5>
+      <h5 className="p-3">{item.comment}</h5>
       {canRemoveComment(item.userId, userId) && (
-        <button className="btn btn-danger" onClick={() => removeComment(item.id)}>
+        <button
+          className="btn btn-danger ml-3"
+          onClick={() => removeComment(item.id)}>
           Delete Comment
         </button>
       )}

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { autoFillData, autoLoginAction } from './redux/actions/middleware-actions';
 import Routes from './Routes';
 import './App.css';
+import Navigation from './components/navigation/navigation';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
+    <div>
+      <Navigation />
       <Routes />
     </div>
   );

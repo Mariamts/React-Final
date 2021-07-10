@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import rootStore from './redux/store';
 import ErrorBoundary from './components/error-boundary';
+import 'rsuite/dist/styles/rsuite-default.css';
 
 import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

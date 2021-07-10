@@ -10,7 +10,7 @@ function DrawComments({ postId }) {
   const { commentsList } = useContext(PostsContext);
   return (
     <div>
-      <h3 className="mb-5 mt-5">comments</h3>
+      <h3 className="mb-5 mt-5 p-3">comments</h3>
       <div className="mt-3">
         {filterComments(commentsList, postId).map((item, index) => (
           <CommentItem key={index} item={item} />

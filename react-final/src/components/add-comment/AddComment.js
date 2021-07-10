@@ -21,7 +21,7 @@ function AddComment({ postId }) {
     <form onSubmit={onSubmit}>
       <input
         type="text"
-        className="form-control"
+        className="form-control rounded mb-3 px-3"
         id="comment"
         placeholder="comment"
         value={comment}

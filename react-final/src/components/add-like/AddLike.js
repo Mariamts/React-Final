@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { PostsContext } from '../../contexts/posts-provider/PostsProvider';
 import { authUserIdSelector } from '../../redux/selectors/auth-selectors';
+import { IconButton, Icon } from 'rsuite';
 
 const hasLiked = (list, postId, userId) => {
   return (
@@ -18,17 +19,22 @@ function AddLike({ postId }) {
     <div className="d-flex">
       <div>
         {hasLiked(likesList, postId, userId) ? (
-          <button
-            className="btn btn-info"
-            onClick={() => removeLike(hasLiked(likesList, postId, userId))}>
-            unlike
-          </button>
+          <IconButton
+            data-bs-toggle="tooltip"
+            data-bs-html="true"
+            title="unlike"
+            appearance="primary"
+            onClick={() => removeLike(hasLiked(likesList, postId, userId))}
+            icon={<Icon icon="star" />}
+          />
         ) : (
-          <button
-            className="btn btn-primary"
-            onClick={() => addLike(postId, userId)}>
-            like
-          </button>
+          <IconButton
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="like"
+            onClick={() => addLike(postId, userId)}
+            icon={<Icon icon="star" />}
+          />
         )}
       </div>
     </div>

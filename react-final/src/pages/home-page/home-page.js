@@ -1,10 +1,9 @@
 import Posts from '../../components/posts';
 import { withAuthProtected } from '../../hoc';
-import signIn from '../auth/sign-in';
 
 function HomePage() {
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <Posts />
     </div>
   );

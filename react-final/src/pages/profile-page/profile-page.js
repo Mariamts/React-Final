@@ -1,27 +1,15 @@
-import { useHistory } from 'react-router';
 import Posts from '../../components/posts';
 import { withAuthProtected } from '../../hoc';
-import { logOut } from '../../services';
-import { AUTH_PATH, PROFILE_PATH } from '../../utils/routePaths';
+
+import { PROFILE_PATH } from '../../utils/routePaths';
 
 function ProfilePage() {
-  const history = useHistory();
-
-  const logout = () => {
-    logOut();
-    history.replace(AUTH_PATH);
-  };
-
   return (
-    <div>
-      <div className="d-flex justify-content-around">
-        <h2>Profile</h2>
-        <a className="btn btn-primary" onClick={() => logout()}>
-          {' '}
-          Log Out
-        </a>
+    <div className="mt-5 col-12">
+      <div className="d-flex justify-content-center align-items-center flex-column">
+        <h2>My Posts</h2>
+        <Posts type={PROFILE_PATH} />
       </div>
-      <Posts type={PROFILE_PATH} />
     </div>
   );
 }
